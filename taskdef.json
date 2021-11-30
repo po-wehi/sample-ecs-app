@@ -33,6 +33,7 @@
     },
     {
       "portMappings": [],
+      "essential": true,
       "environment": [],
       "image": "533243300146.dkr.ecr.us-east-1.amazonaws.com/newrelic/logging-firelens-fluentbit",
       "name": "log_router",
@@ -59,3 +60,4 @@
   "networkMode": null,
   "family": "<APP_NAME>"
 }
+
