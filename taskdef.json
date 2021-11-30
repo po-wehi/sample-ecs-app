@@ -46,10 +46,7 @@
         }
       },
       "firelensConfiguration": {
-        "type": "fluentbit",
-	"options": {
-	  "enable-ecs-log-metadata": "true"
-	}
+        "type": "fluentbit"
       },
       "memoryReservation": 100
     }
