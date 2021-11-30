@@ -16,7 +16,7 @@
       "logConfiguration": {
         "logDriver": "awsfirelens",
         "options": {
-          "licenseKey": <NEWRELIC_API>,
+          "apiKey": <NEWRELIC_API>,
           "Name": "newrelic"
         }
       },
