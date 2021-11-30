@@ -1,0 +1,50 @@
+{
+  "executionRoleArn": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/<APP_NAME>_ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "<APP_NAME>",
+      "image": "<IMAGE_NAME>",
+      "essential": true,
+      "memoryReservation": <MEMORY_RESV>,
+      "portMappings": [
+        {
+          "hostPort": 0,
+          "protocol": "tcp",
+          "containerPort": <SERVICE_PORT>
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awsfirelens",
+        "options": {
+          "apiKey": <NEWRELIC_API>,
+          "Name": "newrelic"
+        }
+      },
+      "environment": [
+        {
+          "name": "PORT",
+          "value": "<SERVICE_PORT>"
+        },
+        {
+          "name": "APP_NAME",
+          "value": "<APP_NAME>"
+        }
+      ]
+    },
+    {
+      "portMappings": [],
+      "environment": [],
+      "image": "533243300146.dkr.ecr.us-east-1.amazonaws.com/newrelic/logging-firelens-fluentbit",
+      "name": "log_router",
+      "firelensConfiguration": {
+        "type": "fluentbit"
+      },
+      "memoryReservation": 100
+    }
+  ],
+  "requiresCompatibilities": [
+    "EC2"
+  ],
+  "networkMode": null,
+  "family": "<APP_NAME>"
+}
